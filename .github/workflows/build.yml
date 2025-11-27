@@ -16,12 +16,12 @@ jobs:
       id-token: write
       packages: write
     steps:
-      - uses: vexxhost/docker-atmosphere/.github/actions/checkout@2024.2
+      - uses: vexxhost/docker-atmosphere/.github/actions/checkout@stable/2024.2
         with:
           repository: openstack/barbican
           ref: b5841df387e5ab38caf173950a1d98ab37a51453
 
-      - uses: vexxhost/docker-atmosphere/.github/actions/build-image@2024.2
+      - uses: vexxhost/docker-atmosphere/.github/actions/build-image@stable/2024.2
         with:
           image-name: barbican
           build-contexts: barbican=openstack/barbican
