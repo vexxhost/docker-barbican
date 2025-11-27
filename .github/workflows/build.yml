@@ -16,13 +16,14 @@ jobs:
       id-token: write
       packages: write
     steps:
-      - uses: vexxhost/docker-atmosphere/.github/actions/checkout@main
+      - uses: vexxhost/docker-atmosphere/.github/actions/checkout@stable/zed
         with:
           repository: openstack/barbican
-          ref: 842ea71bca3aa99ecfb7dac653e8fee7119dd057
+          ref: 07f0a8cdb375ee438e409e943b9a30bf20a9aa45
 
-      - uses: vexxhost/docker-atmosphere/.github/actions/build-image@main
+      - uses: vexxhost/docker-atmosphere/.github/actions/build-image@stable/zed
         with:
           image-name: barbican
+          base-image-tag: zed
           build-contexts: barbican=openstack/barbican
           push: ${{ github.event_name != 'pull_request' }}
