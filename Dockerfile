@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Atmosphere-Rebuild-Time: 2024-06-25T22:49:25Z
 
-FROM ghcr.io/vexxhost/openstack-venv-builder:main@sha256:27f0411c2349a42845c7b08436b225b340bb0ef13d40e59fab1b30beef3987dd AS build
+FROM ghcr.io/vexxhost/openstack-venv-builder:main@sha256:a07e37dd04cd2482761e02cd5870b2b271aa334e62b199c2df3a6455ce3ef77f AS build
 RUN --mount=type=bind,from=barbican,source=/,target=/src/barbican,readwrite <<EOF bash -xe
 uv pip install \
     --constraint /upper-constraints.txt \
@@ -10,7 +10,7 @@ uv pip install \
         pykmip
 EOF
 
-FROM ghcr.io/vexxhost/python-base:main@sha256:b56a6190e40838bb3c803db10c624dfe12be8f64f34caa2e8b157e4351f3406f
+FROM ghcr.io/vexxhost/python-base:main@sha256:2e16855b7d95781de7396ac2cac3aef32ca5a83079db724e3f97d4e4be322c94
 RUN \
     groupadd -g 42424 barbican && \
     useradd -u 42424 -g 42424 -M -d /var/lib/barbican -s /usr/sbin/nologin -c "Barbican User" barbican && \
