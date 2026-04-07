@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: © 2025 VEXXHOST, Inc.
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-FROM ghcr.io/vexxhost/openstack-venv-builder:2025.1@sha256:e39f89eb9090130630e34663792f122ec6b16355e986b2d026a85169afb745af AS build
+FROM ghcr.io/vexxhost/openstack-venv-builder:2025.1@sha256:e2ea110ecdb4a79f208ac3abb82a979c2817f64e21dcc3acdbfa50b262d9ae63 AS build
 RUN --mount=type=bind,from=barbican,source=/,target=/src/barbican,readwrite <<EOF bash -xe
 uv pip install \
     --constraint /upper-constraints.txt \
