@@ -17,12 +17,12 @@ jobs:
       packages: write
       pull-requests: write
     steps:
-      - uses: vexxhost/docker-atmosphere/.github/actions/checkout@9dc904e06dcde958bf8a0b3230715d32b9e3a85f # main
+      - uses: vexxhost/docker-atmosphere/.github/actions/checkout@ec6b988f3cace4eb90d19efe81ab3992ad54251b # main
         with:
           repository: openstack/barbican
           ref: 42b4c41831408a8e323fec3c8983b5c793b64874 # unmaintained/2023.1
 
-      - uses: vexxhost/docker-atmosphere/.github/actions/build-image@9dc904e06dcde958bf8a0b3230715d32b9e3a85f # main
+      - uses: vexxhost/docker-atmosphere/.github/actions/build-image@ec6b988f3cace4eb90d19efe81ab3992ad54251b # main
         with:
           image-name: barbican
           build-contexts: barbican=openstack/barbican
