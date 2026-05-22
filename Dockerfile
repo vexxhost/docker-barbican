@@ -10,7 +10,7 @@ uv pip install \
         pykmip
 EOF
 
-FROM ghcr.io/vexxhost/python-base:zed@sha256:3523f0b05aae35768dec861339e0c38d1044a872e7138ba31cbfb3a2b54c7be0
+FROM ghcr.io/vexxhost/python-base:zed@sha256:e92b679c5a6b406c3155468715abfc9acbb3bc142477b3f4d44c45a906ed38ac
 RUN \
     groupadd -g 42424 barbican && \
     useradd -u 42424 -g 42424 -M -d /var/lib/barbican -s /usr/sbin/nologin -c "Barbican User" barbican && \
