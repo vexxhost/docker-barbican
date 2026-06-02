@@ -1,0 +1,38 @@
+# Depot CI Migration
+# Source: .github/workflows/build.yml
+#
+# Changes made:
+# - Changed GitHub runs-on labels to their Depot equivalents
+
+name: build
+on:
+  pull_request:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - stable/**
+permissions:
+  contents: read
+jobs:
+  image:
+    runs-on: depot-ubuntu-latest # was: ubuntu-latest. Mapped standard GitHub runner to Depot equivalent.
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
+      pull-requests: write
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@a90bcbc6539c36a85cdfeb73f7e2f433735f215b # v2.15.0
+        with:
+          egress-policy: audit
+      - uses: vexxhost/docker-atmosphere/.github/actions/checkout@672cf56c8b828e444b6e7906d0ee355c7ec1dea9 # main
+        with:
+          repository: openstack/barbican
+          ref: f8a331a40eb21e6c8f37e07794d57aa98b120af9 # master
+      - uses: vexxhost/docker-atmosphere/.github/actions/build-image@672cf56c8b828e444b6e7906d0ee355c7ec1dea9 # main
+        with:
+          image-name: barbican
+          build-contexts: barbican=openstack/barbican
+          push: ${{ github.event_name != 'pull_request' }}
