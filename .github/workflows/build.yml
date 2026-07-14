@@ -25,12 +25,12 @@ jobs:
         with:
           egress-policy: audit
 
-      - uses: vexxhost/docker-atmosphere/.github/actions/checkout@b35756699f2b0bf127417a05d0a7358d18920c94 # main
+      - uses: vexxhost/docker-atmosphere/.github/actions/checkout@2b0040e59869e408a94f1e92e67fa47035c50336 # main
         with:
           repository: openstack/barbican
           ref: 510b69abd0a05c9e5d77443f222ea6bf05b99e66 # master
 
-      - uses: vexxhost/docker-atmosphere/.github/actions/build-image@b35756699f2b0bf127417a05d0a7358d18920c94 # main
+      - uses: vexxhost/docker-atmosphere/.github/actions/build-image@2b0040e59869e408a94f1e92e67fa47035c50336 # main
         with:
           image-name: barbican
           build-contexts: barbican=openstack/barbican
