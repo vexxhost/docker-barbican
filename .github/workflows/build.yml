@@ -28,7 +28,7 @@ jobs:
       - uses: vexxhost/docker-atmosphere/.github/actions/checkout@e72a4bb3670421e6ec38413e3e90b11259d86ea1 # main
         with:
           repository: openstack/barbican
-          ref: 510b69abd0a05c9e5d77443f222ea6bf05b99e66 # master
+          ref: 9bbcfb81198b0929bfad4dd04fc80745b3f401a4 # master
 
       - uses: vexxhost/docker-atmosphere/.github/actions/build-image@e72a4bb3670421e6ec38413e3e90b11259d86ea1 # main
         with:
